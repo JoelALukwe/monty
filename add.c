@@ -1,19 +1,19 @@
 #include "monty.h"
 /**
- * f_add - adds the top two elements of the stack.
- * @head: stack head
+ * f_add - responsible for adding top most elements of the stack 
+ * @kichwa: stack head
  * @counter: line_number
  * Return: no return
 */
-void f_add(stack_t **head, unsigned int counter)
+void f_add(stack_t **kichwa, unsigned int counter)
 {
-	stack_t *h;
+	stack_t *k;
 	int len = 0, aux;
 
-	h = *head;
-	while (h)
+	k = *kichwa;
+	while (k)
 	{
-		h = h->next;
+		k = k->next;
 		len++;
 	}
 	if (len < 2)
@@ -21,12 +21,12 @@ void f_add(stack_t **head, unsigned int counter)
 		fprintf(stderr, "L%d: can't add, stack too short\n", counter);
 		fclose(bus.file);
 		free(bus.content);
-		free_stack(*head);
+		free_stack(*kichwa);
 		exit(EXIT_FAILURE);
 	}
-	h = *head;
-	aux = h->n + h->next->n;
-	h->next->n = aux;
-	*head = h->next;
-	free(h);
+	k = *kichwa;
+	aux = k->n + k->next->n;
+	k->next->n = aux;
+	*kichwa = k->next;
+	free(k);
 }
