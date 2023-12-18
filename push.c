@@ -33,5 +33,5 @@ n = atoi(bus.arg);
 if (bus.lifi == 0)
 addnode(kichwa, n);
 else
-addqueue(head, n);
+addqueue(kichwa, n);
 }
